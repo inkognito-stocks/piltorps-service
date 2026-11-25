@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 12 80% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 15% 93%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 10% 45%;
+
+    --accent: 210 15% 93%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 12 80% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 215 25% 15%;
+    --sidebar-foreground: 210 15% 90%;
+    --sidebar-primary: 12 80% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 22%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 215 20% 25%;
+    --sidebar-ring: 12 80% 50%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .section-card {
+    @apply bg-card rounded-lg border shadow-sm p-6;
+  }
+
+  .form-section-title {
+    @apply text-base font-semibold text-foreground tracking-tight;
+  }
+
+  .status-badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+  }
+
+  .status-badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: hsl(var(--warning) / 0.1);
+    color: hsl(var(--warning));
+  }
+
+  .status-badge-destructive {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
