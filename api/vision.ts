@@ -1,5 +1,8 @@
 // Vercel serverless function: reads a photo with Claude and returns structured values.
-// Env: ANTHROPIC_API_KEY (required), ANTHROPIC_MODEL (optional), SUPABASE_URL, SUPABASE_ANON_KEY.
+// Env: ANTHROPIC_API_KEY (required, secret), ANTHROPIC_MODEL (optional).
+// SUPABASE_URL / SUPABASE_ANON_KEY default to the project's public values.
+const SUPABASE_URL = process.env.SUPABASE_URL || "https://nmjocthfuatqralbtamk.supabase.co";
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "sb_publishable_I4VjYsEK-poY2MJn0POTsw_KODHaoFT";
 
 type Kind = "label" | "force_gauge" | "thermometer" | "machine_display" | "speed_meter";
 
@@ -46,9 +49,9 @@ const TOOL = {
 };
 
 async function verifyUser(authHeader: string | undefined): Promise<boolean> {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!url || !key || !authHeader?.startsWith("Bearer ")) return false;
+  const url = SUPABASE_URL;
+  const key = SUPABASE_ANON_KEY;
+  if (!authHeader?.startsWith("Bearer ")) return false;
   const r = await fetch(`${url}/auth/v1/user`, { headers: { apikey: key, Authorization: authHeader } });
   return r.ok;
 }

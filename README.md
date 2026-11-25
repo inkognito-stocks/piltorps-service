@@ -10,7 +10,7 @@ Service- och kalibreringsprotokoll för Leister-maskiner – Piltorps Varmluft A
 | Nyckel | Var |
 |---|---|
 | `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` | klient (publika) |
-| `SUPABASE_URL`, `SUPABASE_ANON_KEY` | serverfunktionen – verifierar inloggning |
+| `SUPABASE_URL`, `SUPABASE_ANON_KEY` | valfria – har publika standardvärden i `api/vision.ts` |
 | `ANTHROPIC_API_KEY` | serverfunktionen – **hemlig** |
 | `ANTHROPIC_MODEL` | valfri, standard `claude-sonnet-5-5` |
 
